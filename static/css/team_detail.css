@@ -1,0 +1,168 @@
+/* Reset and Basic Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #141e30, #243b55);
+}
+
+body {
+    padding: 20px;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+/* Container Styling */
+.container {
+    display: flex;
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Team Details Section */
+.team-details {
+    flex: 1;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.team-details h1 {
+    color: #00ffff;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    margin-bottom: 1.5rem;
+}
+
+.team-details p {
+    color: #ffffff;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.team-details strong {
+    color: #00ffff;
+    font-weight: bold;
+}
+
+/* Team Members Section */
+.team-members {
+    flex: 1;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.team-members h1 {
+    color: #00ffff;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    margin-bottom: 1.5rem;
+}
+
+.team-members ul {
+    list-style-type: none;
+    padding: 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.team-members li {
+    margin-bottom: 10px;
+}
+
+.team-members a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.member-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    transition: background 0.3s ease;
+}
+
+.member-card:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.member-card strong {
+    color: #00ffff;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .team-details, .team-members {
+        width: 100%;
+    }
+
+    .team-details h1, .team-members h1 {
+        font-size: 1.5rem;
+    }
+
+    .team-details p, .team-members p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Apply Button Styling */
+.apply-button {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Optional: Add a separator line */
+}
+
+.apply-button button {
+    background: linear-gradient(45deg, #00ffff, #00bfff);
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.apply-button button:hover {
+    background: linear-gradient(45deg, #00bfff, #00ffff);
+    transform: translateY(-2px);
+}
+
+.apply-button button:active {
+    transform: translateY(0);
+}

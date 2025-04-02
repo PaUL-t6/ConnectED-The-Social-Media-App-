@@ -1,0 +1,129 @@
+/* Reset and Basic Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  html, body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #141e30, #243b55);
+  }
+  
+  body {
+    padding: 20px;
+    min-height: 100vh;
+    overflow-y: auto;
+  }
+  
+  /* Container Styling */
+  .container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+  }
+  
+  /* Settings Button */
+  .settings {
+    text-align: right;
+  }
+  
+  #settings-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #00ffff;
+    transition: transform 0.3s ease;
+  }
+  
+  #settings-btn:hover {
+    transform: rotate(90deg);
+  }
+  
+  /* Heading */
+  .heading h1 {
+    color: #00ffff;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Announcement Textbox */
+  .announcement textarea {
+    width: 100%;
+    height: 150px;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    resize: none;
+  }
+  
+  .announcement textarea:focus {
+    border-color: #00ffff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.4);
+  }
+  
+  /* Enter Button */
+  .enter-btn-container {
+    margin-top: 1rem;
+  }
+  
+  #enter-btn {
+    width: 100%;
+    background-color: #00ffff;
+    color: #ffffff;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  #enter-btn:hover {
+    background-color: #ff00cc;
+    transform: translateY(-2px);
+  }
+  
+  /* Project and Hackathon Buttons */
+  .buttons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .buttons button {
+    width: 48%;
+    background-color: #00ffff;
+    color: #ffffff;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .buttons button:hover {
+    background-color: #ff00cc;
+    transform: translateY(-2px);
+  }
+  

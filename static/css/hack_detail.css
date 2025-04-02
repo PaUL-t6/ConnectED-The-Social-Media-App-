@@ -1,0 +1,214 @@
+/* Reset and Basic Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #141e30, #243b55);
+}
+
+body {
+    padding: 20px;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+/* Container Styling */
+.container {
+    display: flex;
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Scrollable Sections */
+.hackathon-details, .teams-list {
+    flex: 1;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    max-height: 500px; /* Set a max height to enable scrolling */
+    overflow-y: auto;
+}
+
+/* Hide scrollbar for webkit browsers (optional) */
+.hackathon-details::-webkit-scrollbar,
+.teams-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.hackathon-details::-webkit-scrollbar-thumb,
+.teams-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.hackathon-details::-webkit-scrollbar-track,
+.teams-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.hackathon-details h1, .teams-list h1 {
+    color: #00ffff;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    margin-bottom: 1.5rem;
+}
+
+.hackathon-details p, .teams-list p {
+    color: #ffffff;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.hackathon-details ul, .teams-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.hackathon-details ul li, .teams-list li {
+    color: #ffffff;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.hackathon-details ul li::before {
+    content: "•";
+    color: #00ffff;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+/* Team List Styling */
+.teams-list li {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.teams-list .team-id {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #00ffff;
+    margin-bottom: 10px;
+}
+
+.teams-list .team-details {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.teams-list .team-details strong {
+    color: #00ffff;
+    font-weight: bold;
+}
+
+/* Create Team Button Styling */
+.create-team-button {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.create-team-button button {
+    background: linear-gradient(45deg, #00ffff, #00bfff);
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.create-team-button button:hover {
+    background: linear-gradient(45deg, #00bfff, #00ffff);
+    transform: translateY(-2px);
+}
+
+.create-team-button button:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hackathon-details, .teams-list {
+        width: 100%;
+        max-height: 400px; /* Adjust for smaller screens */
+    }
+
+    .hackathon-details h1, .teams-list h1 {
+        font-size: 1.5rem;
+    }
+
+    .hackathon-details p, .teams-list p, .teams-list .team-details {
+        font-size: 0.9rem;
+    }
+
+    .create-team-button button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
+
+/* Team Card Styling */
+.team-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background 0.3s ease;
+}
+
+.team-card:hover {
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.team-card .team-id {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #00ffff;
+    margin-bottom: 10px;
+}
+
+.team-card .team-details {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.team-card .team-details strong {
+    color: #00ffff;
+    font-weight: bold;
+}

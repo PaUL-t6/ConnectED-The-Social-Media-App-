@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/hack_detail.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Left Side: Hackathon Details -->
+        <div class="hackathon-details">
+            <h1>Hackathon Details</h1>
+            {% if hackathon %}
+            <p><strong>Name:</strong> {{ hackathon.name }}</p>
+            <p><strong>Description:</strong> {{ hackathon.description }}</p>
+            <p><strong>Start Date:</strong> {{ hackathon.start_date }}</p>
+            <p><strong>End Date:</strong> {{ hackathon.end_date }}</p>
+            <p><strong>Skills Required:</strong></p>
+            <ul>
+                {% for skill in hackathon.skills %}
+                <li>{{ skill }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>No hackathon details available.</p>
+            {% endif %}
+        </div>
+
+        <!-- Right Side: Teams List -->
+        <div class="teams-list">
+            <h1>Teams</h1>
+            {% if teams %}
+            <ul>
+                {% for team in teams %}
+                <li>
+                    <a href="{{ url_for('team_details', username=username, hackathon_name=hackathon.name, team_id=team.team_id) }}">
+                        <div class="team-card">
+                            <div class="team-id"><strong>Team ID:</strong> {{ team.team_id }}</div>
+                            <div class="team-details">
+                                <strong>Team Name:</strong> {{ team.name }}<br>
+                                <strong>Project ID:</strong> {{ team.project_id if team.project_id else "N/A" }}<br>
+                                <strong>Rankings:</strong> {{ team.rankings if team.rankings else "Not assigned" }}<br>
+                                <strong>Average Rating:</strong> {{ team.average_rating if team.average_rating else "N/A" }}
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>No teams registered for this hackathon.</p>
+            {% endif %}
+
+            <!-- Create Team Button -->
+            <div class="create-team-button">
+                <a href="{{ url_for('create_team', username=username, hackathon_name=hackathon.name) }}">
+                    <button>Create Team</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

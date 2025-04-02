@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/project_detail.css') }}">
+</head>
+
+<body>
+    <div class="project-card">
+        <h1>{{ project.name }}</h1>
+        <div class="project-head">
+            Project Head: <a href="/profile/{{ project.project_head }}" class="project-head-link">{{
+                project.project_head }}</a>
+        </div>
+        <p>{{ project.description }}</p>
+    </div>
+</body>
+
+</html>

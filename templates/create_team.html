@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Team</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/create_team.css') }}">
+</head>
+
+<body>
+    <div class="create-team-container">
+        <h1>Create a New Team</h1>
+        <form action="{{ url_for('create_team', username=username, hackathon_name=hackathon_name) }}" method="POST">
+            <!-- Hidden Fields for username and hackathon_name -->
+            <input type="hidden" name="username" value="{{ username }}">
+            <input type="hidden" name="hackathon_name" value="{{ hackathon_name }}">
+
+            <!-- Team Name Field -->
+            <div class="form-group">
+                <label for="team-name">Team Name</label>
+                <input type="text" id="team-name" name="team_name" placeholder="Enter your team name" required>
+            </div>
+
+            <!-- Description Field -->
+            <div class="form-group">
+                <label for="team-description">Description</label>
+                <textarea id="team-description" name="team_description"
+                    placeholder="Enter a brief description of your team" rows="4" required></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit">Create Team</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

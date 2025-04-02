@@ -1,0 +1,93 @@
+/* Reset and Basic Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #141e30, #243b55);
+    color: #ffffff;
+}
+
+body {
+    padding: 20px;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+/* Project Card Styling */
+.project-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    color: inherit; /* Inherit color from body */
+}
+
+.project-card h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #00ffff;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.project-card .project-head {
+    font-size: 14px;
+    color: #888888;
+    margin-bottom: 10px;
+}
+
+.project-card .project-head a {
+    color: #00ffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.project-card .project-head a:hover {
+    color: #00bfff;
+}
+
+.project-card p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px; /* Added margin for better spacing */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .project-card {
+        padding: 15px;
+    }
+
+    .project-card h1 {
+        font-size: 20px;
+    }
+
+    .project-card p {
+        font-size: 14px;
+    }
+}
+
+/* Additional Improvements */
+.project-card .project-head a:focus {
+    outline: 2px solid #00bfff; /* Accessibility: Add focus outline */
+    outline-offset: 2px;
+}
+
+.project-card .project-head a:active {
+    color: #0099cc; /* Change color on active state */
+}
+
+.project-card .project-head a:visited {
+    color: #00ffff; /* Ensure visited links remain consistent */
+}

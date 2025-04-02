@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - ConnectEd</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register_page_style.css') }}">
+</head>
+
+<body>
+    <div class="register-container">
+        <h1>ConnectEd</h1>
+        <h2>Create Your Account</h2>
+        <form action="/register" method="POST">
+            <div class="form-group">
+                <label for="username">Full Name</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label>Select Technical Skills</label>
+                <div class="skills-container" id="skills-container">
+                    <button type="button" class="skill-btn" data-skill="Python">Python</button>
+                    <button type="button" class="skill-btn" data-skill="JavaScript">JavaScript</button>
+                    <button type="button" class="skill-btn" data-skill="Java">Java</button>
+                    <button type="button" class="skill-btn" data-skill="C++">C++</button>
+                    <button type="button" class="skill-btn" data-skill="HTML/CSS">HTML/CSS</button>
+                    <button type="button" class="skill-btn" data-skill="SQL">SQL</button>
+                    <button type="button" class="skill-btn" data-skill="Machine Learning">Machine Learning</button>
+                    <button type="button" class="skill-btn" data-skill="Cloud Computing">Cloud Computing</button>
+                </div>
+                <input type="hidden" id="skills" name="skills" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm_password" required>
+            </div>
+            <button type="submit" class="register-btn">Register</button>
+        </form>
+        <p>Already have an account? <a href="/login">Login here</a></p>
+    </div>
+    <script>
+        const skillButtons = document.querySelectorAll('.skill-btn');
+        const skillsInput = document.getElementById('skills');
+
+        skillButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                button.classList.toggle('selected');
+                updateSkills();
+            });
+        });
+
+        function updateSkills() {
+            const selectedSkills = Array.from(skillButtons)
+                .filter(button => button.classList.contains('selected'))
+                .map(button => button.dataset.skill);
+
+            skillsInput.value = selectedSkills.join(',');
+        }
+    </script>
+</body>
+
+</html>

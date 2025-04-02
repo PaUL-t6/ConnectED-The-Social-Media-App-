@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Hackathon</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/create_hackathon.css') }}">
+</head>
+
+<body>
+    <div class="register-container">
+        <h1>Create Hackathon</h1>
+        <h2>Fill in the details to create a hackathon event!</h2>
+
+        <form action="{{ url_for('create_hackathon') }}" method="POST">
+            <!-- Hackathon Name -->
+            <div class="form-group">
+                <label for="hackathon-name">Hackathon Name:</label>
+                <input type="text" id="hackathon-name" name="hackathon_name" placeholder="Enter hackathon name" required>
+            </div>
+
+            <!-- Hackathon Description -->
+            <div class="form-group">
+                <label for="hackathon-description">Hackathon Description:</label>
+                <textarea id="hackathon-description" name="hackathon_description" placeholder="Enter hackathon description" required></textarea>
+            </div>
+
+            <!-- Start Date -->
+            <div class="form-group">
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date" name="start_date" required>
+            </div>
+
+            <!-- End Date -->
+            <div class="form-group">
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date" name="end_date" required>
+            </div>
+
+            <h3>Skills Required:</h3>
+            <div class="skills-container">
+                <label><input type="checkbox" name="skills[]" value="Python"> Python</label>
+                <label><input type="checkbox" name="skills[]" value="JavaScript"> JavaScript</label>
+                <label><input type="checkbox" name="skills[]" value="Machine Learning"> Machine Learning</label>
+                <label><input type="checkbox" name="skills[]" value="Web Development"> Web Development</label>
+                <label><input type="checkbox" name="skills[]" value="Mobile App Development"> Mobile App Development</label>
+                <label><input type="checkbox" name="skills[]" value="AI"> AI</label>
+            </div>
+
+            <!-- Create Button -->
+            <button type="submit" class="register-btn">Create Hackathon</button>
+        </form>
+    </div>
+</body>
+
+</html>

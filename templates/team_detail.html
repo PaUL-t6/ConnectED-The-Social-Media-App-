@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/team_detail.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Display flashed messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <!-- Left Side: Team Details -->
+        <div class="team-details">
+            <h1>Team Details</h1>
+            {% if team %}
+            <p><strong>Name:</strong> {{ team.name }}</p>
+            <p><strong>Team Leader:</strong> {{ team.team_leader }}</p>
+            <p><strong>Average Rating:</strong> {{ team.average_rating if team.average_rating else "N/A" }}</p>
+            <p><strong>Description:</strong> {{ team.description }}</p>
+            {% else %}
+            <p>No team details available.</p>
+            {% endif %}
+        </div>
+
+        <!-- Right Side: Team Members -->
+        <div class="team-members">
+            <h1>Team Members</h1>
+            {% if members %}
+            <ul>
+                {% for member in members %}
+                <li>
+                    <a href="{{ url_for('profile', username=member[0]) }}">
+                        <div class="member-card">
+                            <strong>{{ member[0] }}</strong>
+                        </div>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>No members found.</p>
+            {% endif %}
+
+            <!-- Apply to Join Form -->
+            <div class="apply-button">
+                <form
+                    action="{{ url_for('team_details', username=username, hackathon_name=hackathon_name, team_id=team_id) }}"
+                    method="POST">
+                    <input type="hidden" name="user_id" value="{{ current_user }}">
+                    <!-- Use current_user (username) as user_id -->
+                    <button type="submit">Apply to Join</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

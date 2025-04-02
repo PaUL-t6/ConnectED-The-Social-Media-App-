@@ -1,2 +1,0 @@
-# ConnectED
-ConnectED Source Code

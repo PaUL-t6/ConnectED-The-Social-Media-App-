@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/page.css') }}" />
+</head>
+
+<body>
+    <!-- Title Bar -->
+    <div class="title-bar">
+        <div class="left">
+            <img src="{{ url_for('static', filename='images/symbol.webp') }}" alt="Symbol" class="symbol">
+            <button class="title-btn" onclick="window.location.href='/home/{{ username }}'">ConnectEd</button>
+        </div>
+        <div class="right">
+            <span class="username">Hello, {{ username }}</span>
+            <button class="profile-btn" onclick="window.location.href='/profile/{{ username }}'">
+                <div class="profile-circle"><img src="{{ url_for('static', filename='images/profile.jpeg') }}"
+                        alt="Symbol" class="symbol"></div>
+            </button>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Left Section -->
+        <div class="left-section">
+            <div class="profile-pic">
+                <img src="{{ url_for('static', filename='images/profile.jpeg') }}" alt="Profile Picture" />
+            </div>
+
+            <!-- Display the username dynamically -->
+            <h1 class="name">{{ username }}</h1>
+
+            <!-- Display the user's rating -->
+            <div class="ratings">Ratings: {{ rating }}⭐</div>
+
+            <!-- My Hackathons and My Projects Section -->
+            <div class="hackathon-projects-container">
+                <!-- My Hackathons Section -->
+                <div class="section-box my-hackathons">
+                    <h2>My Hackathons</h2>
+                    <ul>
+                        {% if hackathons %}
+                        {% for hackathon in hackathons %}
+                        <li>
+                            <strong>{{ hackathon.name }}</strong><br>
+                            {{ hackathon.description }}<br>
+                            <small>Start: {{ hackathon.start_date }} | End: {{ hackathon.end_date }}</small>
+                        </li>
+                        {% endfor %}
+                        {% else %}
+                        <li>No hackathons found.</li>
+                        {% endif %}
+                    </ul>
+                </div>
+
+                <!-- My Projects Section -->
+                <div class="section-box my-projects">
+                    <h2>My Projects</h2>
+                    <ul>
+                        {% if projects %}
+                        {% for project in projects %}
+                        <li>
+                            <strong>{{ project.name }}</strong><br>
+                            {{ project.description }}
+                        </li>
+                        {% endfor %}
+                        {% else %}
+                        <li>No projects found.</li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Section (For skills and social links with vertical scroll) -->
+        <div class="right-section">
+            <div class="scrollable-section">
+                <!-- Skills Section -->
+                <div class="section">
+                    <h2>Skills</h2>
+                    <ul class="skills-list">
+                        {% if skills %}
+                        {% for skill in skills %}
+                        <li class="skill-item">
+                            <span class="skill-name">{{ skill.skill }}</span>
+                            <span class="skill-rating">{{ skill.rating }}⭐</span>
+                        </li>
+                        {% endfor %}
+                        {% else %}
+                        <li>No skills found.</li>
+                        {% endif %}
+                    </ul>
+                </div>
+
+                <!-- Social Links Section -->
+                <div class="section">
+                    <h2>Social Links</h2>
+                    <ul>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
