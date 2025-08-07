@@ -11,7 +11,7 @@ def init_db():
     conn = sqlite3.connect(DB_NAME)
     cursor = conn.cursor()
 
-    # Create user_info table
+    # Create user_info table with help of python
     cursor.execute('''CREATE TABLE IF NOT EXISTS user_info (
                     user_id INTEGER PRIMARY KEY AUTOINCREMENT,
                     username TEXT NOT NULL UNIQUE,
